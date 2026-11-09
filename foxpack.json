@@ -1,0 +1,15 @@
+{
+  "name": "foxdock-history",
+  "kind": "foxdock-plugin",
+  "id": "history",
+  "foxdockApi": 1,
+  "version": "0.1.0",
+  "description": "Keeps the previous version of each form, class library, report, label and menu you edit, with diff and restore",
+  "license": "MIT",
+  "files": [
+    "HistoryPlugin.prg",
+    "HistoryStrings.prg",
+    "HistoryTools.prg"
+  ],
+  "requires": []
+}
