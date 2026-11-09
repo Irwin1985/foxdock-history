@@ -50,13 +50,11 @@
 *                 versión con su tamaño, fecha y hora se copian (tres por tick,
 *                 sin texto: se saca al pedir un diff). Cierra el hueco del
 *                 MODIFY FORM tecleado para lo que está en un proyecto.
-*   vfp2text      la ruta de vfp2text.exe, solo para la suite (una inventada
+*   vfp2text      la ruta de vfp2text.exe, solo para las pruebas (una inventada
 *                 simula que FoxKit no está). Sin ella, la de FoxKit en
 *                 HKLM\SOFTWARE\irwinrodriguez.dev\FoxKit\InstallDir.
 *
 * nOrder 970: detrás de foxagent (960), sin cambiar el orden de los de antes.
-*
-* Fichero en CP1252, con los acentos escritos.
 *==================================================================
 
 #DEFINE CRLF CHR(13) + CHR(10)
@@ -73,7 +71,7 @@ DEFINE CLASS HistoryPlugin AS PluginBase
 	cId = "history"
 	cTitle = "History"
 	nOrder = 950
-	cVersion = "0.1.0"
+	cVersion = "0.1.1"
 	lWantsIdle = .T.
 
 	cRoot = ""            && <DataDir>\history\
@@ -1454,7 +1452,7 @@ DEFINE CLASS HistoryPlugin AS PluginBase
 	* Carpetas.
 	*==============================================================
 
-	*-- MKDIR nivel a nivel (vfpdocs no dice que cree los de en medio).
+	*-- MKDIR nivel a nivel (la ayuda de VFP no dice que cree los de en medio).
 	PROCEDURE MakeDirs
 		LPARAMETERS tcDir
 		LOCAL lcPath, lnI, lnN
@@ -1546,8 +1544,7 @@ DEFINE CLASS HistoryForm AS Form
 		*-- El combo, detrás de su etiqueta, para que no la tape un texto largo.
 		*-- La etiqueta se mide con TXTWIDTH (en el Init, el Width de una AutoSize
 		*-- no es el de su texto nuevo). El combo acaba donde acababa. El Anchor,
-		*-- a 0 y de vuelta: el anclaje va por la posición de cuando se puso
-		*-- (vfpdocs, Anchor).
+		*-- a 0 y de vuelta: el anclaje va por la posición de cuando se puso.
 		lnW = CEILING(TXTWIDTH(This.lblFile.Caption, This.lblFile.FontName, This.lblFile.FontSize, IIF(This.lblFile.FontBold, "B", "N")) * ;
 			FONTMETRIC(6, This.lblFile.FontName, This.lblFile.FontSize, IIF(This.lblFile.FontBold, "B", "N")))
 		IF This.lblFile.Left + lnW + 8 > This.cboFile.Left

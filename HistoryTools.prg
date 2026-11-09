@@ -9,8 +9,6 @@
 *   ide_history_diff     el diff de una versión contra el fichero (lee)
 *   ide_history_restore  restaura una versión (actúa: rol 10); se niega
 *                        con el diseñador abierto, como el botón
-*
-* Superficie pública en inglés. Fichero en CP1252.
 *==================================================================
 
 #DEFINE HS_NO_HOST "FoxDock is not mounted (after CLEAR ALL it sleeps until a FoxDock menu bar or key is pressed)"
